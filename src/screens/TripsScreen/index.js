@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
 import Trip from './Trip'
+import styles from './styles'
 
 class TripsScreen extends Component {
   static navigationOptions = {
@@ -8,7 +9,7 @@ class TripsScreen extends Component {
   }
 
   renderItem = trip => {
-    return <Trip title={trip.item.title} price={trip.item.price} />
+    return <Trip onPress={() => this.props.navigation.navigate('Trip')} title={trip.item.title} price={trip.item.price} />
   }
 
   render () {
@@ -19,22 +20,13 @@ class TripsScreen extends Component {
     ]
 
     return (
-      <View style={{
-        flex: 1,
-        justifyContent: 'space-between',
-        alignItems: 'stretch'
-      }}>
+      <View style={styles.wrapper}>
 
-        <View style={{
-          backgroundColor: 'red',
-          flex: 1
-        }}>
+        <View style={styles.wrapperMap}>
           <Text>Mapa</Text>
         </View>
 
-        <View style={{
-          backgroundColor: 'pink'
-        }}>
+        <View style={styles.wrapperTripsList}>
           <FlatList
             data={trips}
             renderItem={this.renderItem}

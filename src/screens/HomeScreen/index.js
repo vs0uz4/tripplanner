@@ -9,7 +9,7 @@ class HomeScreen extends Component {
   }
 
   state = {
-    show: true
+    show: false
   }
 
   handleShow = () => {
