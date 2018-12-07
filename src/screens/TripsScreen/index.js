@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList } from 'react-native'
+import hasNotch from '../../utils/hasNotch'
 import Trip from './Trip'
 import styles from './styles'
 
@@ -33,6 +34,9 @@ class TripsScreen extends Component {
             horizontal
             pagingEnabled
             keyExtractor={item => item.id}
+            style={[
+              hasNotch ? { marginBottom: 16 } : null
+            ]}
           />
         </View>
 

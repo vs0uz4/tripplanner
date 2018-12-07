@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, ImageBackground, Image, TouchableWithoutFeedback } from 'react-native'
+import hasNotch from '../../utils/hasNotch'
 import assets from './assets'
 import styles from './styles'
 
@@ -35,7 +36,7 @@ class HomeScreen extends Component {
         {
           !this.state.show
             ? <TouchableWithoutFeedback onPress={this.handleShow}>
-              <View style={styles.buttonBackground}>
+              <View style={[ styles.buttonBackground, hasNotch ? { paddingBottom: 32 } : null ]}>
                 <Text style={styles.buttonText}>COMEÇAR</Text>
               </View>
             </TouchableWithoutFeedback>
@@ -43,7 +44,7 @@ class HomeScreen extends Component {
               <View style={styles.buttonEmptyStateBackground}>
                 <Image source={assets.pin} style={styles.pin} />
                 <Text style={styles.buttonEmptyStateText}>Vamos planejar sua primeira viagem?</Text>
-                <Image source={assets.arrow} style={styles.arrow} />
+                <Image source={assets.arrow} style={[ styles.arrow, hasNotch ? { marginBottom: 16 } : null ]} />
               </View>
             </TouchableWithoutFeedback>
         }

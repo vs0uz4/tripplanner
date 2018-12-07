@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native'
+import hasNotch from '../../utils/hasNotch'
 import styles from './styles'
 import assets from './assets'
 
@@ -44,7 +45,7 @@ class TripScreen extends Component {
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
-          <View style={styles.backButton}>
+          <View style={[styles.backButton, hasNotch ? { paddingTop: 16 } : null]}>
             <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
               <Image source={assets.arrow} />
             </TouchableOpacity>
