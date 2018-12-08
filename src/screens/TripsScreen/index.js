@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
+import { View, FlatList, Image, TouchableOpacity } from 'react-native'
+import MapView from 'react-native-maps'
 import hasNotch from '../../utils/hasNotch'
 import Trip from './Trip'
 import assets from './assets'
@@ -25,7 +26,16 @@ class TripsScreen extends Component {
       <View style={styles.wrapper}>
 
         <View style={styles.wrapperMap}>
-          <Text>Mapa</Text>
+          <MapView
+            style={styles.map}
+            region={{
+              latitude: 59.371571,
+              longitude: 16.511565,
+              latitudeDelta: 0.035,
+              longitudeDelta: 0.0121
+            }}
+          />
+
           <View style={styles.addButton}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('TripAdd')}>
               <Image source={assets.plus} />

@@ -7,15 +7,19 @@ const styles = StyleSheet.create({
     alignItems: 'stretch'
   },
   wrapperMap: {
-    backgroundColor: 'red',
+    flex: 1
+  },
+  map: {
     flex: 1
   },
   wrapperTripsList: {
     backgroundColor: 'white'
   },
   addButton: {
-    alignSelf: 'flex-end',
-    marginRight: 16
+    position: 'absolute',
+    bottom: 16,
+    right: 16,
+    padding: 5
   }
 })
 
