@@ -50,6 +50,11 @@ class TripScreen extends Component {
               <Image source={assets.arrow} />
             </TouchableOpacity>
           </View>
+          <View style={[styles.addButton, hasNotch ? { paddingTop: 16 } : null]}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('PointAdd')}>
+              <Image source={assets.plus} />
+            </TouchableOpacity>
+          </View>
           <Text style={styles.tripTitle}>TripTitle</Text>
           <Text style={styles.tripPrice}>R$ 5000</Text>
         </View>

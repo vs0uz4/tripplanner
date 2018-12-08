@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
     top: 16,
     left: 16
   },
+  addButton: {
+    alignSelf: 'flex-end',
+    top: 16,
+    right: 16
+  },
   tripTitle: {
     position: 'absolute',
     bottom: 16,

@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
   },
   wrapperTripsList: {
     backgroundColor: 'white'
+  },
+  addButton: {
+    alignSelf: 'flex-end',
+    marginRight: 16
   }
 })
 

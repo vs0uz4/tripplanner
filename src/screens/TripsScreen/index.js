@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
 import hasNotch from '../../utils/hasNotch'
 import Trip from './Trip'
+import assets from './assets'
 import styles from './styles'
 
 class TripsScreen extends Component {
@@ -25,6 +26,11 @@ class TripsScreen extends Component {
 
         <View style={styles.wrapperMap}>
           <Text>Mapa</Text>
+          <View style={styles.addButton}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('TripAdd')}>
+              <Image source={assets.plus} />
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View style={styles.wrapperTripsList}>
