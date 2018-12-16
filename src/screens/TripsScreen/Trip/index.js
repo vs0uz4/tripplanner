@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Dimensions, TouchableOpacity } from 'react-native'
+
 import styles from './styles'
 
 const Trip = props => {
@@ -11,7 +12,7 @@ const Trip = props => {
         <Text>Trip Image</Text>
       </View>
       <Text style={styles.tripTitle}>{ props.title }</Text>
-      <Text style={styles.tripPrice}>{ props.price }</Text>
+      <Text style={styles.tripPrice}>R$ { props.price.toFixed(2) }</Text>
     </TouchableOpacity>
   )
 }

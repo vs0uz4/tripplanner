@@ -17,9 +17,8 @@ const styles = StyleSheet.create({
   },
   addButton: {
     position: 'absolute',
-    bottom: 16,
-    right: 16,
-    padding: 5
+    bottom: 14,
+    right: 16
   }
 })
 

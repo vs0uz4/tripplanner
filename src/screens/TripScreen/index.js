@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, Image, FlatList, TouchableOpacity, AsyncStorage } from 'react-native'
+
 import hasNotch from '../../utils/hasNotch'
 import styles from './styles'
 import assets from './assets'
@@ -9,54 +10,95 @@ class TripScreen extends Component {
     header: null
   }
 
+  state = {
+    trip: [],
+    points: []
+  }
+
+  getTrips = async () => {
+    const tripsStored = await AsyncStorage.getItem('trips')
+    let trips = []
+    if (tripsStored) {
+      trips = JSON.parse(tripsStored)
+    }
+
+    return trips
+  }
+
+  getPointsByTripId = async (tripId) => {
+    const pointsStored = await AsyncStorage.getItem('trip-' + tripId)
+    let points = []
+    if (pointsStored) {
+      points = JSON.parse(pointsStored)
+    }
+
+    return points
+  }
+
+  loadData = async () => {
+    const id = this.props.navigation.state.params.id
+    const trips = await this.getTrips()
+    const points = await this.getPointsByTripId(id)
+
+    let trip = {
+      id: 0,
+      tripTitle: '',
+      price: 0,
+      latitude: 0,
+      longitude: 0
+    }
+    trips.forEach(t => {
+      if (t.id === id) {
+        trip = t
+      }
+    })
+
+    this.setState({
+      trip: trip,
+      points: points
+    })
+  }
+
+  componentDidMount () {
+    this.loadData()
+  }
+
   renderItem = places => {
     return (
       <View style={styles.wrapperPlacesItem}>
         <View style={styles.wrapperPlacesItemInfo}>
-          <Text style={styles.placesItemName}>{places.item.name}</Text>
-          <Text>{places.item.description}</Text>
+          <Text style={styles.placesItemName}>{places.item.pointName}</Text>
+          <Text>{places.item.pointDescription}</Text>
         </View>
         <View style={styles.wrapperPlacesItemPrice}>
-          <Text style={styles.placesItemPriceText}>R$ {places.item.price}</Text>
+          <Text style={styles.placesItemPriceText}>R$ {places.item.pointPrice.toFixed(2)}</Text>
         </View>
       </View>
     )
   }
 
   render () {
-    const trip = {
-      title: 'Eurotrip 2019',
-      price: 'R$ 5000',
-      places: [
-        { id: '1', name: 'Amesterdan', description: 'Chegada', price: 5000, lat: 0, long: 0 },
-        { id: '2', name: 'XO Hotel', description: 'Hospedagem', price: 1000, lat: 0, long: 0 },
-        { id: '3', name: 'Bruxelas', description: 'Chegada', price: 100, lat: 0, long: 0 },
-        { id: '4', name: 'Ibis Hotel', description: 'Hospedagem', price: 150, lat: 0, long: 0 },
-        { id: '5', name: 'Noruega', description: 'Chegada', price: 130, lat: 0, long: 0 },
-        { id: '6', name: 'Hostel', description: 'Hospedagem', price: 40, lat: 0, long: 0 },
-        { id: '7', name: 'Luxemburgo', description: 'Chegada', price: 200, lat: 0, long: 0 },
-        { id: '8', name: 'Hostel', description: 'Hospedagem', price: 35, lat: 0, long: 0 },
-        { id: '9', name: 'França', description: 'Chegada', price: 150, lat: 0, long: 0 },
-        { id: '10', name: 'XO Hotel', description: 'Hospedagem', price: 500, lat: 0, long: 0 },
-        { id: '11', name: 'Museu do Louvre', description: 'Passeio', price: 200, lat: 0, long: 0 }
-      ]
-    }
+    const { trip, points } = this.state
 
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
           <View style={[styles.backButton, hasNotch ? { paddingTop: 16 } : null]}>
-            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <TouchableOpacity onPress={() => {
+              this.props.navigation.state.params.refresh()
+              this.props.navigation.state.params.animateMap(trip.latitude, trip.longitude)
+              this.props.navigation.goBack()
+            }}>
               <Image source={assets.arrow} />
             </TouchableOpacity>
           </View>
           <View style={[styles.addButton, hasNotch ? { paddingTop: 16 } : null]}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('PointAdd')}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('PointAdd', { trip: trip, refresh: this.loadData })}>
               <Image source={assets.plus} />
             </TouchableOpacity>
           </View>
-          <Text style={styles.tripTitle}>TripTitle</Text>
-          <Text style={styles.tripPrice}>R$ 5000</Text>
+          <Text style={styles.tripTitle}>{trip.tripTitle}</Text>
+          <Text style={styles.tripPrice}>R$ {parseFloat(trip.price).toFixed(2)}</Text>
         </View>
         <FlatList
           style={{
@@ -66,9 +108,9 @@ class TripScreen extends Component {
             paddingTop: 16,
             paddingLeft: 16
           }}
-          data={trip.places}
+          data={points}
           renderItem={this.renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.pointId.toString()}
         />
       </View>
     )
