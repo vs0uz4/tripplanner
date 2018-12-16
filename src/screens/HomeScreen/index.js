@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, ImageBackground, Image, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, ImageBackground, Image, TouchableWithoutFeedback, AsyncStorage } from 'react-native'
+
 import hasNotch from '../../utils/hasNotch'
 import assets from './assets'
 import styles from './styles'
@@ -10,13 +11,18 @@ class HomeScreen extends Component {
   }
 
   state = {
-    show: false
+    show: true
   }
 
-  handleShow = () => {
-    this.setState({
-      show: !this.state.show
-    })
+  loadData = async () => {
+    const trips = await AsyncStorage.getItem('trips')
+    if (trips && trips.length > 0) {
+      this.setState({ show: false })
+    }
+  }
+
+  componentDidMount () {
+    this.loadData()
   }
 
   render () {
@@ -35,7 +41,9 @@ class HomeScreen extends Component {
         </View>
         {
           !this.state.show
-            ? <TouchableWithoutFeedback onPress={this.handleShow}>
+            ? <TouchableWithoutFeedback onPress={() => {
+              this.props.navigation.navigate('Trips')
+            }}>
               <View style={[ styles.buttonBackground, hasNotch ? { paddingBottom: 32 } : null ]}>
                 <Text style={styles.buttonText}>COMEÇAR</Text>
               </View>
