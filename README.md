@@ -1,5 +1,5 @@
 <p align="center">
-<img style="-webkit-user-select: none;padding: 10px;" src="https://imgur.com/a/8eReBYM" height="500">
+<img style="-webkit-user-select: none;padding: 10px;" src="https://raw.githubusercontent.com/vs0uz4/tripplanner/master/.screens/tripplaner_screensshots.webp" height="280">
 </p>
 <p align="center">
   <a href="https://facebook.github.io/react-native/" target="_blank">
