@@ -74,10 +74,10 @@ E por fim para efetivamente gerar o *.apk*, após as devidas configurações sej
 
 ## Todo
 Algumas funcionalidades extras que não encontravam-se no escopo do treinamento estão na pendência de serem desenvolvidas afim de praticar e fixar os conhecimentos. Estas funcionalidades foram sugeridas como melhoria para o projeto de forma a constarem no portifólio de aplicações/projetos desenvolvidos. As funcionalidades a serem desenvolvidas são:
-- ~~Adição de Imagem à Viagem~~;
-- ~~Adição de Preços em Outras Moedas~~.
+- [ ] [Android/IOS] Adição de Imagem à Viagem;
+- [ ] [Android/IOS] Adição de Preços em Outras Moedas.
 
-> Ultima atualização : 17/12/2018
+> Ultima atualização : 18/12/2018
 
 
 ## Informações importantes:
