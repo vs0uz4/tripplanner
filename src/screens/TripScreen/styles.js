@@ -6,7 +6,9 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: 'grey',
-    height: 208
+    justifyContent: 'center',
+    height: 210,
+    marginBottom: 8
   },
   backButton: {
     position: 'absolute',
@@ -14,22 +16,27 @@ const styles = StyleSheet.create({
     left: 16
   },
   addButton: {
-    alignSelf: 'flex-end',
+    position: 'absolute',
     top: 16,
     right: 16
   },
   tripTitle: {
     position: 'absolute',
-    bottom: 16,
-    left: 16,
+    bottom: 6,
+    left: 0,
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingLeft: 8,
+    paddingRight: 8,
+    textAlign: 'left',
     fontSize: 18,
     fontWeight: '500',
-    textAlign: 'left'
+    backgroundColor: 'rgba(36, 198, 220, 0.5)'
   },
   tripPrice: {
     position: 'absolute',
-    bottom: 16,
-    right: 16,
+    bottom: 6,
+    right: 6,
     paddingTop: 4,
     paddingBottom: 4,
     paddingLeft: 8,

@@ -104,7 +104,7 @@ class TripsScreen extends Component {
   }
 
   renderItem = trip => {
-    return <Trip onPress={() => this.props.navigation.navigate('Trip', { id: trip.item.id, animateMap: this.animateMap, refresh: this.loadData })} title={trip.item.tripTitle} price={trip.item.price} />
+    return <Trip onPress={() => this.props.navigation.navigate('Trip', { id: trip.item.id, animateMap: this.animateMap, refresh: this.loadData })} image={trip.item.tripImage} title={trip.item.tripTitle} price={trip.item.price} />
   }
 
   render () {

@@ -7,10 +7,13 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16
   },
-  tripImage: {
+  wrapperTripImage: {
     backgroundColor: 'green',
     height: 144,
     marginBottom: 6
+  },
+  tripImage: {
+    flex: 1
   },
   tripTitle: {
     marginBottom: 10,
@@ -20,8 +23,8 @@ const styles = StyleSheet.create({
   },
   tripPrice: {
     position: 'absolute',
-    top: 144 - 26,
-    right: 32,
+    top: 144 - 16,
+    right: 22,
     paddingTop: 4,
     paddingBottom: 4,
     paddingLeft: 8,

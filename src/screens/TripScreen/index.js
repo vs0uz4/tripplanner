@@ -43,6 +43,7 @@ class TripScreen extends Component {
     let trip = {
       id: 0,
       tripTitle: '',
+      tripImage: null,
       price: 0,
       latitude: 0,
       longitude: 0
@@ -57,6 +58,8 @@ class TripScreen extends Component {
       trip: trip,
       points: points
     })
+
+    console.log('state:', this.state)
   }
 
   componentDidMount () {
@@ -80,9 +83,14 @@ class TripScreen extends Component {
   render () {
     const { trip, points } = this.state
 
+    console.log('state:', this.state)
+
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
+
+          <Image resizeMode='cover' style={{ flex: 1 }} source={trip.tripImage} />
+
           <View style={[styles.backButton, hasNotch ? { paddingTop: 16 } : null]}>
             <TouchableOpacity onPress={() => {
               this.props.navigation.state.params.refresh()
@@ -92,11 +100,13 @@ class TripScreen extends Component {
               <Image source={assets.arrow} />
             </TouchableOpacity>
           </View>
+
           <View style={[styles.addButton, hasNotch ? { paddingTop: 16 } : null]}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('PointAdd', { trip: trip, refresh: this.loadData })}>
               <Image source={assets.plus} />
             </TouchableOpacity>
           </View>
+
           <Text style={styles.tripTitle}>{trip.tripTitle}</Text>
           <Text style={styles.tripPrice}>R$ {parseFloat(trip.price).toFixed(2)}</Text>
         </View>

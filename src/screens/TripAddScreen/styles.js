@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: 'grey',
-    height: 208,
+    justifyContent: 'center',
+    height: 210,
     marginBottom: 24
   },
   backButton: {
@@ -15,18 +16,24 @@ const styles = StyleSheet.create({
     left: 16
   },
   uploadButton: {
-    alignSelf: 'flex-end',
+    position: 'absolute',
     top: 16,
     right: 16
   },
   wrapperFrameImage: {
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'center'
+  },
+  frameImage: {
+    alignSelf: 'center'
   },
   frameImageText: {
+    alignSelf: 'center',
     fontSize: 14,
     fontWeight: '400',
     paddingTop: 10
+  },
+  tripImage: {
+    flex: 1
   },
   input: {
     backgroundColor: '#E5E5E5',
