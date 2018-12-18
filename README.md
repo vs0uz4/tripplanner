@@ -34,7 +34,7 @@ O Tripplanner é um aplicativo mobile, para você planejar suas viagens, podendo
 - Griação de Pontos de Viagem;
 - Persistência dos Dados no AsyncStorage;
 - **Posicionamento GPS em Realtime**;
-- ~~Adição de Imagem à Viagem~~;
+- Adição de Imagem à Viagem - (18/12/2018);
 - ~~Adição de Preços em Outras Moedas~~.
 
 > O posicionamento georeferencial em tempo real foi implementado na seção de adição de pontos de viagens, afim de que o *MAPA* utilize como parâmetro a sua localização atual. Esta funcionalidade foi adicionada por conta própria e com a finalidade de melhorar a usabilidade do aplicativo.
@@ -74,7 +74,7 @@ E por fim para efetivamente gerar o *.apk*, após as devidas configurações sej
 
 ## Todo
 Algumas funcionalidades extras que não encontravam-se no escopo do treinamento estão na pendência de serem desenvolvidas afim de praticar e fixar os conhecimentos. Estas funcionalidades foram sugeridas como melhoria para o projeto de forma a constarem no portifólio de aplicações/projetos desenvolvidos. As funcionalidades a serem desenvolvidas são:
-- [ ] [Android/IOS] Adição de Imagem à Viagem;
+- [x] [Android/IOS] Adição de Imagem à Viagem;
 - [ ] [Android/IOS] Adição de Preços em Outras Moedas.
 
 > Ultima atualização : 18/12/2018
