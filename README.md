@@ -55,21 +55,21 @@ O HandsOn foi todo baseado na criação do aplicativo para a plataforma *IOS*, p
 
 Após instalar, configurar o Android Studio e posteriormente a ter criado e configurado a *imagem* a ser utilizada para testes durante o desenvolvimento do aplicativo através do *AVD Manager*, passei a utilizar o seguinte comando abaixo para iniciar o emulador:
 
-> emulator -avd nome_da_imagem_avd
+```emulator -avd nome_da_imagem_avd```
 
 Para iniciar a criação do *bundle* utilizei o seguinte comando abaixo:
 
-> react-native start
+```react-native start```
 
 Para gerar a versão do aplicativo, automaticamente instala-la no emulador e já iniciar a mesma, basta usar o comando abaixo:
 
-> react-native run-android 
+```react-native run-android```
 
 > O comando acima irá criar uma versão do aplicativo menos performática do que versão final de distribuição devido estar disponível junto a ela todas as funcionalidades de suporte a debug.
 
 E por fim para efetivamente gerar o *.apk*, após as devidas configurações sejam efetivamente realizadas, basta executar o seguinte comando em seu shell
 
-> react-native run-android --variant=release
+```react-native run-android --variant=release```
 
 
 ## Todo
