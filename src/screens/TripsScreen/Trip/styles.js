@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     paddingRight: 16
   },
   wrapperTripImage: {
-    backgroundColor: 'green',
+    backgroundColor: 'gray',
+    justifyContent: 'center',
     height: 144,
     marginBottom: 6
   },

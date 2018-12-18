@@ -20,6 +20,21 @@ const styles = StyleSheet.create({
     top: 16,
     right: 16
   },
+  wrapperFrameImage: {
+    justifyContent: 'center'
+  },
+  frameImage: {
+    alignSelf: 'center'
+  },
+  frameImageText: {
+    alignSelf: 'center',
+    fontSize: 14,
+    fontWeight: '400',
+    paddingTop: 10
+  },
+  tripImage: {
+    flex: 1
+  },
   tripTitle: {
     position: 'absolute',
     bottom: 6,
@@ -29,9 +44,9 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     paddingRight: 8,
     textAlign: 'left',
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '500',
-    backgroundColor: 'rgba(36, 198, 220, 0.5)'
+    backgroundColor: 'rgba(36, 198, 220, 0.7)'
   },
   tripPrice: {
     position: 'absolute',
@@ -42,7 +57,7 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     paddingRight: 8,
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
     backgroundColor: '#24C6DC'
   },
@@ -56,7 +71,12 @@ const styles = StyleSheet.create({
   },
   placesItemName: {
     fontWeight: '500',
-    fontSize: 18,
+    fontSize: 14,
+    textAlign: 'left'
+  },
+  placesItemDescription: {
+    fontWeight: '500',
+    fontSize: 12,
     textAlign: 'left'
   },
   wrapperPlacesItemPrice: {
@@ -65,6 +85,7 @@ const styles = StyleSheet.create({
     paddingRight: 16
   },
   placesItemPriceText: {
+    fontSize: 14,
     textAlign: 'right',
     color: '#24C6DC'
   }

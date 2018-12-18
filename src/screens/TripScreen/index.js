@@ -71,7 +71,7 @@ class TripScreen extends Component {
       <View style={styles.wrapperPlacesItem}>
         <View style={styles.wrapperPlacesItemInfo}>
           <Text style={styles.placesItemName}>{places.item.pointName}</Text>
-          <Text>{places.item.pointDescription}</Text>
+          <Text style={styles.placeItemDescription}>{places.item.pointDescription}</Text>
         </View>
         <View style={styles.wrapperPlacesItemPrice}>
           <Text style={styles.placesItemPriceText}>R$ {places.item.pointPrice.toFixed(2)}</Text>
@@ -83,13 +83,23 @@ class TripScreen extends Component {
   render () {
     const { trip, points } = this.state
 
-    console.log('state:', this.state)
-
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
 
-          <Image resizeMode='cover' style={{ flex: 1 }} source={trip.tripImage} />
+          {
+            trip.tripImage === null
+              ? (
+                <View styles={[styles.wrapperFrameImage, { alignItems: 'center' }]}>
+                  <Image style={styles.frameImage} source={assets.noImage} />
+                  <Text style={styles.frameImageText}>NENHUMA IMAGEM ADICIONADA</Text>
+                </View>
+              ) : (
+                <View style={[styles.wrapperTripImage, { flex: 1, alignItems: 'stretch' }]}>
+                  <Image resizeMode='cover' style={styles.tripImage} source={trip.tripImage} />
+                </View>
+              )
+          }
 
           <View style={[styles.backButton, hasNotch ? { paddingTop: 16 } : null]}>
             <TouchableOpacity onPress={() => {
